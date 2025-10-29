@@ -1,0 +1,104 @@
+/* src/Styles/Navbar.css */
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.main-nav a {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  color: var(--text-primary);
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-accent);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after, .main-nav a.active::after {
+  width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  transition: color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  color: var(--text-primary);
+}
+
+.dropdown-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-btn.open svg {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, top 0.3s ease;
+  z-index: 1100;
+}
+
+.dropdown-content.open {
+  opacity: 1;
+  visibility: visible;
+  top: 120%;
+}
+
+.dropdown-content a {
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+}

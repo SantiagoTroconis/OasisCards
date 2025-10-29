@@ -1,0 +1,166 @@
+/* src/Styles/Marketplace.css */
+
+.marketplace-page {
+  padding: 2rem;
+}
+
+.marketplace-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.marketplace-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.marketplace-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Slider */
+.slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 500px;
+  perspective: 1500px;
+}
+
+.pack-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.pack-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  height: 450px;
+  border-radius: var(--border-radius-lg);
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.pack-item.active {
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.pack-item.prev {
+  transform: translateX(-50%) translateZ(-200px) scale(0.8);
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.pack-item.next {
+  transform: translateX(50%) translateZ(-200px) scale(0.8);
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.pack-item.hidden {
+  transform: translateZ(-400px) scale(0.5);
+  opacity: 0;
+  z-index: 1;
+}
+
+.pack-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.pack-description {
+  color: var(--text-secondary);
+}
+
+.pack-price {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.buy-button {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.slider-button.prev { left: -25px; }
+.slider-button.next { right: -25px; }
+
+/* Pack Opening */
+.pack-opening-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.opening-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-reveal {
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.card-reveal.revealed {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+.collect-cards-button {
+  margin-top: 2rem;
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+}

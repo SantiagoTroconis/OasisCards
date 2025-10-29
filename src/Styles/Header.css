@@ -1,0 +1,264 @@
+.site-header {
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container .logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.logo-highlight {
+  color: var(--secondary-accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-menu .profile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.user-menu .profile-link img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+.logout-btn, .login-btn {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover, .login-btn:hover {
+  background-color: #2563eb; 
+  cursor: pointer;
+}
+
+.modal-generic-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-generic-content {
+  background-color: var(--background-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid var(--border-color);
+}
+
+.modal-generic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-generic-header h2 {
+  font-size: 1.5rem;
+}
+
+.modal-generic-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Credits Modal */
+.credit-form label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.credit-form input[type="text"], .credit-form .StripeElement {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.credit-form .pay-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--primary-accent);
+  border: none;
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Play Modal */
+.modal-content-play .deck-info {
+  margin-bottom: 1.5rem;
+}
+
+.modal-content-play .deck-display {
+  background-color: var(--background-primary);
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-weight: 600;
+}
+
+.game-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+  color: var(--primary-accent);
+  border-bottom-color: var(--primary-accent);
+}
+
+.game-code-section .code-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-primary);
+  padding: 1rem;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius-md);
+}
+
+.game-code {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.friends-list {
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.friend-item-play {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+/* Search Friends Modal */
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.send-request-btn {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Play Modal Buttons */
+.copy-btn, .invite-btn, .start-game-btn, .join-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.copy-btn, .invite-btn, .join-btn {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+}
+
+.start-game-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--secondary-accent);
+  color: var(--background-primary);
+  margin-top: 1rem;
+}
+
+.code-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}

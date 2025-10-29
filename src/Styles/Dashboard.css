@@ -1,0 +1,571 @@
+.deck-builder-container {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1f3a 100%);
+    position: relative;
+}
+
+.main-deck-section {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+.field-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 13, 0.15) 0%, rgba(0, 255, 13, 0.05) 50%, transparent 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.field-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 51%);
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.field-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 750px;
+    padding: 20px;
+}
+
+.position-slot {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    width: 220px;
+    height: 280px; /* Fixed size */
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    overflow: hidden; /* To contain the card image */
+}
+
+.position-slot .card-in-slot {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.card-in-slot .player-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.card-in-slot .player-info {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.card-in-slot .card-remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 3px;
+    background: rgba(255, 0, 0, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position-slot:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+}
+
+.position-slot.drag-over {
+    background: rgba(0, 170, 255, 0.2);
+    border-color: rgba(0, 170, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.position-label {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.collection-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.collection-section:hover {
+    height: 470px;
+}
+
+.collection-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.collection-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.collection-arrow {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.collection-section:hover .collection-arrow {
+    transform: rotate(180deg);
+}
+
+.cards-grid-wrapper {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 20px 20px 20px;
+}
+
+.cards-grid-dashboard {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    padding: 10px 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cards-grid-dashboard::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-grid-dashboard::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.cards-grid-dashboard::-webkit-scrollbar-thumb {
+    background: rgba(76, 175, 80, 0.5);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.cards-grid-dashboard::-webkit-scrollbar-thumb:hover {
+    background: rgba(76, 175, 80, 0.7);
+}
+
+.cards-grid-dashboard .player-card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 280px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cards-grid-dashboard .player-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.cards-grid-dashboard .player-card.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(70%);
+}
+
+.empty-collection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+}
+
+
+.deck-management-section {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 50;
+}
+
+.section-header {
+    margin-bottom: 15px;
+}
+
+.save-deck-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.save-deck-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+}
+
+.save-deck-btn:disabled {
+    background: rgba(102, 102, 102, 0.5);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+
+.create-deck-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 40px;
+    border-radius: 16px;
+    min-width: 350px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+    color: #fff;
+    margin: 0 0 25px 0;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.modal-actions button:first-child {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.modal-actions button:last-child {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.modal-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+
+.actual-deck,
+.saved-decks-section {
+    margin-top: 20px;
+}
+
+.actual-deck h3,
+.saved-decks-section h3 {
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.actual-deck-card,
+.empty-actual-deck {
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    white-space: pre-line;
+    word-break: break-word;
+}
+
+.saved-decks-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.saved-deck-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    color: #fff;
+    width: 60%;
+    white-space: pre-line;
+    word-break: break-word;
+}
+
+.saved-deck-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(76, 175, 80, 0.5);
+    transform: translateX(5px);
+    cursor: pointer;
+}
+
+.deck-rating {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+    margin: 8px 8px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 768px) {
+    .main-deck-section {
+        padding: 20px;
+    }
+    
+    .field-grid {
+        gap: 12px;
+        padding: 15px;
+    }
+    
+    .position-slot {
+        min-height: 150px;
+        max-height: 150px;
+    }
+    
+    .deck-management-section {
+        position: static;
+        max-width: 100%;
+        margin: 20px;
+    }
+    
+    .collection-section {
+        height: 70px;
+    }
+    
+    .collection-section:hover {
+        height: 300px;
+    }
+}
+
+
+.deck-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.deck-modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    max-height: 80vh;
+    width: 90%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.deck-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.deck-modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal-btn:hover {
+    color: #333;
+}
+
+.deck-modal-body {
+    margin-bottom: 20px;
+}
+
+.deck-cards-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.modal-card {
+    transform: scale(0.8);
+}
+
+.deck-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.delete-deck-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.load-deck-btn:hover {
+    background-color: #d32f2f;
+}
+
+.collection-section.hidden {
+    height: 0;
+    overflow: hidden;
+}

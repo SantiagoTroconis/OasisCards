@@ -1,0 +1,336 @@
+ .auth-container {
+     min-height: 100vh;
+     display: flex;
+     background: linear-gradient(135deg, #1a1f3a 0%, #2d1b69 50%, #1e3a5f 100%);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .form-section {
+     flex: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 2rem;
+     position: relative;
+     z-index: 10;
+ }
+
+ .form-container {
+     width: 100%;
+     max-width: 400px;
+ }
+
+ .logo-section {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ .logo-icon {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 64px;
+     height: 64px;
+     background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+     border-radius: 50%;
+     margin-bottom: 1rem;
+ }
+
+ .logo-title {
+     font-size: 2rem;
+     font-weight: 700;
+     color: white;
+     margin: 0 0 0.5rem 0;
+     font-family: 'Arial', sans-serif;
+ }
+
+ .logo-subtitle {
+     color: #cbd5e1;
+     font-size: 0.9rem;
+     margin: 0;
+ }
+
+ .toggle-container {
+     display: flex;
+     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+     border-radius: 12px;
+     padding: 4px;
+     margin-bottom: 1.5rem;
+ }
+
+ .toggle-button {
+     flex: 1;
+     padding: 12px 16px;
+     border: none;
+     border-radius: 8px;
+     font-size: 0.875rem;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     background: transparent;
+ }
+
+ .toggle-button.active {
+     background: white;
+     color: #1e293b;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .toggle-button.inactive {
+     color: white;
+ }
+
+ .toggle-button.inactive:hover {
+     background: rgba(255, 255, 255, 0.1);
+ }
+
+ .form-group {
+     position: relative;
+     margin-bottom: 1rem;
+ }
+
+ .form-input {
+     width: 100%;
+     padding: 16px 16px 16px 48px;
+     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     border-radius: 12px;
+     color: white;
+     font-size: 1rem;
+     outline: none;
+     transition: all 0.3s ease;
+     box-sizing: border-box;
+ }
+
+ .form-input::placeholder {
+     color: #94a3b8;
+ }
+
+ .form-input:focus {
+     border-color: #3b82f6;
+     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+ }
+
+ .input-icon {
+     position: absolute;
+     left: 16px;
+     top: 50%;
+     transform: translateY(-50%);
+     color: #94a3b8;
+ }
+
+ .password-toggle {
+     position: absolute;
+     right: 16px;
+     top: 50%;
+     transform: translateY(-50%);
+     background: none;
+     border: none;
+     color: #94a3b8;
+     cursor: pointer;
+     padding: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: color 0.3s ease;
+ }
+
+ .password-toggle:hover {
+     color: white;
+ }
+
+ .submit-button {
+     width: 100%;
+     padding: 16px;
+     background: #3b82f6;
+     border: none;
+     border-radius: 12px;
+     color: white;
+     font-size: 1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .submit-button:hover {
+     background: #2563eb;
+
+ }
+
+ .forgot-password {
+     text-align: center;
+     margin-top: 1rem;
+ }
+
+ .forgot-password a {
+     color: #93c5fd;
+     text-decoration: none;
+     font-size: 0.875rem;
+     transition: color 0.3s ease;
+ }
+
+ .forgot-password a:hover {
+     color: white;
+ }
+
+ .divider {
+     position: relative;
+     margin: 1.5rem 0;
+ }
+
+ .divider::before {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: rgba(255, 255, 255, 0.2);
+ }
+
+ .divider-text {
+     background: linear-gradient(135deg, #1a1f3a 0%, #2d1b69 50%, #1e3a5f 100%);
+     padding: 0 1rem;
+     color: #94a3b8;
+     font-size: 0.875rem;
+     position: relative;
+     display: inline-block;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+
+ .social-buttons {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 12px;
+     margin-top: 1rem;
+ }
+
+ .social-button {
+     padding: 12px 16px;
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     border-radius: 8px;
+     background: rgba(255, 255, 255, 0.05);
+     color: white;
+     font-size: 0.875rem;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-align: center;
+ }
+
+ .social-button:hover {
+     background: rgba(255, 255, 255, 0.1);
+ }
+
+ .diagonal-section {
+     flex: 1;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .diagonal-bg {
+     position: absolute;
+     top: 0;
+     left: -10%;
+     width: 120%;
+     height: 100%;
+     background: linear-gradient(135deg, #059669 0%, #3b82f6 50%, #8b5cf6 100%);
+     transform: skewX(12deg);
+     transform-origin: top left;
+ }
+
+ .diagonal-content {
+     position: relative;
+     z-index: 10;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 3rem;
+     color: white;
+ }
+
+ .diagonal-title {
+     font-size: 2.5rem;
+     font-weight: 700;
+     margin-bottom: 1.5rem;
+     text-align: center;
+     line-height: 1.2;
+ }
+
+ .diagonal-description {
+     font-size: 1.125rem;
+     margin-bottom: 2rem;
+     text-align: center;
+     opacity: 0.9;
+     max-width: 500px;
+     line-height: 1.6;
+ }
+
+ .features-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 2rem;
+     margin-top: 2rem;
+ }
+
+ .feature-item {
+     text-align: center;
+ }
+
+ .feature-icon {
+     width: 64px;
+     height: 64px;
+     background: rgba(255, 255, 255, 0.2);
+     backdrop-filter: blur(10px);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 1rem auto;
+ }
+
+ .feature-title {
+     font-size: 0.875rem;
+     font-weight: 600;
+     margin-bottom: 0.25rem;
+ }
+
+ .feature-subtitle {
+     font-size: 0.75rem;
+     opacity: 0.75;
+ }
+
+ @media (max-width: 768px) {
+     .auth-container {
+         flex-direction: column;
+     }
+
+     .diagonal-bg {
+         transform: skewX(0deg);
+         left: 0;
+         width: 100%;
+     }
+
+     .features-grid {
+         grid-template-columns: 1fr;
+         gap: 1rem;
+     }
+
+     .diagonal-title {
+         font-size: 2rem;
+     }
+ }
+
+ .error-text {
+     color: #f87171;
+     font-size: 0.875rem;
+     margin-top: -0.5rem;
+     margin-bottom: 1rem;
+     text-align: center;
+ }

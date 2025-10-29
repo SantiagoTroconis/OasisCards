@@ -1,0 +1,391 @@
+.search-game-modal {
+  background: #1e1e2e;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border: 1px solid #2d2d3a;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #2d2d3a;
+  background: #252538;
+}
+
+.modal-header h2 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #cccccc;
+  font-size: 1.6rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #404040;
+  color: #ffffff;
+}
+
+/* Modal Content */
+.modal-content-play {
+  padding: 24px;
+}
+
+.deck-info {
+  margin-bottom: 24px;
+}
+
+.deck-info h3 {
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.deck-display {
+  background: #2a2a3e;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.deck-name {
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.game-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #404040;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px;
+  background: #2a2a3e;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.tab-btn:not(:last-child) {
+  border-right: 1px solid #404040;
+}
+
+.tab-btn:hover {
+  background: #353548;
+  color: #ffffff;
+}
+
+.tab-btn.active {
+  background: #271bdb;
+  color: #ffffff;
+}
+
+.game-code-section {
+  margin-bottom: 24px;
+}
+
+.game-code-section h4,
+.friends-section h4,
+.join-game-section h4 {
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.code-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #2a2a3e;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.game-code {
+  flex: 1;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  background: #1e1e2e;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #404040;
+}
+
+.copy-btn {
+  background: #271bdb;
+  border: 1px solid #555555;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+  background: #555555;
+}
+
+.copy-btn:active {
+  background: #606060;
+}
+
+
+.friends-section {
+  margin-bottom: 24px;
+}
+
+.friends-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  background: #2a2a3e;
+}
+
+.friends-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.friends-list::-webkit-scrollbar-track {
+  background: #2a2a3e;
+}
+
+.friends-list::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 3px;
+}
+
+.friends-list::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+.friend-item-play {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.5);
+  transition: background-color 0.2s ease;
+}
+
+.friend-item-play:last-child {
+  border-bottom: none;
+}
+
+.friend-item-play:hover {
+  background: #353548;
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.friend-name {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.status {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status.online {
+  color: #4caf50;
+}
+
+.status.offline {
+  color: #888888;
+}
+
+.invite-btn {
+  background: #271bdb;
+  border: 1px solid #555555;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.invite-btn:hover:not(:disabled) {
+  background: #555555;
+}
+
+.invite-btn:disabled {
+  background: #333333;
+  border-color: #444444;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.start-game-btn,
+.join-btn {
+  width: 100%;
+  background: #271bdb;
+  border: 1px solid #555555;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.start-game-btn:hover,
+.join-btn:hover:not(:disabled) {
+  background: #555555;
+}
+
+.start-game-btn:active,
+.join-btn:active:not(:disabled) {
+  background: #606060;
+}
+
+.code-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.code-input {
+  background: #2a2a3e;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 16px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  transition: all 0.2s ease;
+}
+
+.code-input::placeholder {
+  color: #888888;
+  letter-spacing: normal;
+  font-weight: normal;
+  font-family: inherit;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #666666;
+  background: #353548;
+}
+
+.join-btn:disabled {
+  background: #333333;
+  border-color: #444444;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.join-btn:disabled:hover {
+  background: #333333;
+}
+
+@media (max-width: 768px) {
+  .search-game-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .modal-header {
+    padding: 20px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .modal-content-play {
+    padding: 20px;
+  }
+  
+  .game-code {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  
+  .code-input {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-game-modal {
+    width: 98%;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-content-play {
+    padding: 16px;
+  }
+  
+  .code-display {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .copy-btn,
+  .invite-btn {
+    width: 100%;
+  }
+  
+  .game-code {
+    margin-bottom: 8px;
+  }
+}

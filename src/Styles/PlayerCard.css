@@ -1,0 +1,165 @@
+.player-card {
+    width: 220px;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: grab;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-card.disabled {
+    cursor: not-allowed;
+}
+
+.player-card.in-deck {
+    height: auto;
+    min-height: 140px;
+}
+
+.card-remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 40px;
+    width: 50px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.card-remove-btn:hover {
+    background-color: #ef4444;
+    opacity: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.card-rating {
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid;
+}
+
+.card-position {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.card-footer {
+    padding: 12px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.card-name-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.card-flag {
+    width: 24px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-player-name {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.player-card.common {
+    background-color: #31363f;
+}
+
+.player-card.rare {
+    background-color: #252e4a;
+}
+
+.player-card.epic {
+    background-color: #3c2c5c;
+}
+
+.player-card.legendary {
+    background-color: #5a4a2a;
+}
+
+.player-card.master {
+    background-color: #5c2c31;
+}
+
+.player-card.mythic {
+    background-color: #5c2c3a;
+}
+
+.player-card.common .card-rating {
+    border-color: var(--rarity-common);
+    color: var(--rarity-common);
+}
+
+.player-card.rare .card-rating {
+    border-color: var(--rarity-rare);
+    color: var(--rarity-rare);
+}
+
+.player-card.epic .card-rating {
+    border-color: var(--rarity-epic);
+    color: var(--rarity-epic);
+}
+
+.player-card.legendary .card-rating {
+    border-color: var(--rarity-legendary);
+    color: var(--rarity-legendary);
+}
+
+.player-card.master .card-rating {
+    border-color: var(--rarity-master);
+    color: var(--rarity-master);
+}
+
+.player-card.mythic .card-rating {
+    border-color: var(--rarity-mythic);
+    color: var(--rarity-mythic);
+}

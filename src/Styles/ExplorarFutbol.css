@@ -1,0 +1,115 @@
+.football-viewer-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: 'Inter',
+    sans-serif;
+}
+
+.football-viewer-container h2 {
+    color: #4ade80;
+    font-size: 2rem;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.football-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.match-card {
+    background-color: #1f2937;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.match-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(74, 222, 128, 0.1);
+}
+
+.match-card-content {
+    padding: 1.5rem;
+}
+
+.match-teams {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.match-details {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.match-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background-color: #374151;
+}
+
+.status-message {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 4rem;
+}
+
+.status-message.error {
+    color: #f87171;
+}
+
+.image-placeholder-rect {
+    width: 100%;
+    height: 160px;
+    background-color: #374151;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+.loader-bar {
+    width: 80px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 9999px; /* forma de pastilla */
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
+
+.loader-bar-progress {
+    position: absolute;
+    left: -40%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+    border-radius: 9999px;
+    animation: shimmer 1.2s ease-in-out infinite;
+    opacity: 0.9;
+}
+
+/* Animación más elegante */
+@keyframes shimmer {
+    0% { left: -40%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}

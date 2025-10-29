@@ -1,0 +1,140 @@
+USE oasis;
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    real_name VARCHAR(100),
+    date_of_birth DATE,
+    profile_url VARCHAR(200) DEFAULT 'http://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png?20170328184010',
+    subscription_status VARCHAR(50) NOT NULL DEFAULT 'Activo',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    credit FLOAT DEFAULT 0,
+    stripe_costumer_id VARCHAR(100),
+	rating INT DEFAULT 0
+);
+SELECT * FROM users;
+
+CREATE TABLE payment_methods (
+  pm_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  stripe_pm_id VARCHAR(100) UNIQUE,
+  brand VARCHAR(100),
+  last4 VARCHAR(100),
+  FOREIGN KEY (user_id)REFERENCES users(user_id)
+);
+
+CREATE TABLE cards (
+    card_id INT PRIMARY KEY AUTO_INCREMENT,
+    player_name VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    position ENUM('POR', 'DEF', 'MED', 'DEL') NOT NULL,
+    rating INT NOT NULL,
+    rarity ENUM('common', 'rare', 'epic', 'legendary') NOT NULL,
+    speed INT NOT NULL,
+    shooting INT NOT NULL,
+    passing INT NOT NULL,
+    defense INT NOT NULL,
+    image VARCHAR(255) NULL
+);
+SELECT * FROM cards;
+
+CREATE TABLE packs (
+    pack_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price INT NOT NULL,
+    rarity VARCHAR(50) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    cards_count INT NOT NULL,
+    color VARCHAR(20) NOT NULL,
+    bg VARCHAR(255) NOT NULL
+);
+
+SELECT * FROM packs;
+
+
+CREATE TABLE user_cards
+(
+	id_user_card INT PRIMARY KEY AUTO_INCREMENT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    card_id INT NOT NULL,
+	FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(card_id) REFERENCES cards(card_id)
+);
+SELECT * FROM user_cards;
+
+
+CREATE TABLE decks
+(
+	deck_id INT PRIMARY KEY AUTO_INCREMENT,
+    deck_name VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    rating FLOAT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+SELECT * FROM decks;
+
+CREATE TABLE deck_cards
+(
+	id_deck_cards INT PRIMARY KEY AUTO_INCREMENT,
+    deck_id INT NOT NULL,
+    card_id INT NOT NULL,
+    FOREIGN KEY (deck_id) REFERENCES decks(deck_id),
+    FOREIGN KEY (card_id) REFERENCES cards(card_id)
+);
+
+SELECT * FROM deck_cards;
+
+
+
+
+
+
+
+
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE spCreateNewUser(
+
+    IN p_email VARCHAR(100),
+    IN p_password_hash VARCHAR(255),
+    IN p_subscription_status VARCHAR(50),
+    IN p_profile_url VARCHAR(200),
+    IN p_date_of_birth DATE,
+    IN p_username VARCHAR(100),
+    IN p_real_name VARCHAR(100)
+)
+BEGIN
+
+    INSERT INTO users (
+        email, 
+        password_hash, 
+        subscription_status, 
+        profile_url, 
+        date_of_birth, 
+        username, 
+        real_name
+    ) 
+    VALUES (
+        p_email, 
+        p_password_hash, 
+        p_subscription_status, 
+        p_profile_url, 
+        p_date_of_birth, 
+        p_username, 
+        p_real_name
+    );
+END$$
+
+DELIMITER ;
+
+
+
+
+
+
