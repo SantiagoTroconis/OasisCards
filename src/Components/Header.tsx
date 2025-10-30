@@ -55,7 +55,57 @@ export const Header = () => {
             {play && (
                 <div className={`modal-generic-overlay ${play ? 'open' : ''}`}>
                     <Play isOpen={play} onClose={() => setPlay(false)} onStartGame={(code) => {
-                        console.log(`Starting game with code: ${code}`);
+                        (() => {
+                            if (!document.getElementById('global-loader')) {
+                                const overlay = document.createElement('div');
+                                overlay.id = 'global-loader';
+                                overlay.setAttribute('role', 'status');
+                                Object.assign(overlay.style, {
+                                    position: 'fixed',
+                                    inset: '0',
+                                    width: '100vw',
+                                    height: '100vh',
+                                    background: 'rgba(0,0,0,0.45)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    zIndex: '9999',
+                                });
+
+                                const spinner = document.createElement('div');
+                                Object.assign(spinner.style, {
+                                    width: '48px',
+                                    height: '48px',
+                                    border: '6px solid rgba(255,255,255,0.85)',
+                                    borderTop: '6px solid rgba(255,255,255,0.18)',
+                                    borderRadius: '50%',
+                                    boxSizing: 'border-box',
+                                    animation: 'globalLoaderSpin 1s linear infinite',
+                                });
+
+                                const style = document.createElement('style');
+                                style.innerHTML = `
+                                    @keyframes globalLoaderSpin {
+                                        from { transform: rotate(0deg); }
+                                        to { transform: rotate(360deg); }
+                                    }
+                                `;
+
+                                overlay.appendChild(spinner);
+                                document.head.appendChild(style);
+                                document.body.appendChild(overlay);
+                            }
+
+                            setPlay(false);
+
+                            setTimeout(() => {
+                                const ov = document.getElementById('global-loader');
+                                if (ov) ov.remove();
+                                window.location.href = `/battle`;
+                                console.log(`Starting game with code: ${code}`);
+                            }, 1500);
+                        })();
+                        return;
                     }} />
                 </div>
             )}

@@ -10,6 +10,7 @@ import { Profile } from '../Pages/Profile';
 import { Landing } from '../Pages/Landing.tsx';
 import { Marketplace } from '../Pages/Marketplace.tsx';
 import { Seleccion } from '../Pages/Seleccion.tsx';
+import { BattlePage } from '../Pages/Battle.tsx';
 
 export const router = createBrowserRouter([
     {
@@ -87,5 +88,9 @@ export const router = createBrowserRouter([
                 element: <Marketplace />,
             }
         ]
+    },
+    {
+        path: '/battle',
+        element: <BattlePage />
     }
 ]);

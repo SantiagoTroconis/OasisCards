@@ -49,6 +49,7 @@ export const Play: React.FC<SearchGameModalProps> = ({ isOpen, onClose, onStartG
 
     const handleCreateGame = () => {
         onStartGame(gameCode);
+
     };
 
     if (!isOpen) return null;
